@@ -2,9 +2,9 @@
   description = "Home Manager for Nix";
 
   outputs = { self, nixpkgs }: rec {
-    nixosModules.home-manager = import ./nixos;
+    nixosModules.home-manager = import ./nixos nixpkgs;
 
-    darwinModules.home-manager = import ./nix-darwin;
+    darwinModules.home-manager = import ./nix-darwin nixpkgs;
 
     lib = {
       homeManagerConfiguration = { configuration, system, homeDirectory
